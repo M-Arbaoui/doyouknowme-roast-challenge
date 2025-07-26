@@ -30,48 +30,44 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-transparent to-transparent"></div>
-        <div className="absolute inset-0 opacity-10">
-          <img 
-            src={heroImage} 
-            alt="Quiz Challenge Hero" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="relative max-w-6xl mx-auto px-4 py-20">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6 animate-pulse-glow">
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-primary/5 to-accent/10"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+        
+        <div className="relative max-w-4xl mx-auto px-4 text-center">
+          <div className="mb-8">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-8 animate-pulse-glow">
               <Flame className="h-4 w-4" />
               Get Ready to be Roasted
             </div>
-            <h1 className="text-6xl md:text-7xl font-bold mb-6">
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 Do You Even
               </span>
               <br />
               <span className="text-foreground">Know Me?</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-              Create quizzes about yourself and watch your friends get roasted based on how poorly they score. 
-              The ultimate test of friendship! 🔥
+            
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
+              Test your friends and watch them get roasted! 🔥
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-lg mx-auto mb-16">
               <Button
                 onClick={() => navigate('/create')}
                 size="lg"
-                className="bg-gradient-primary hover:opacity-80 transition-opacity animate-pulse-glow"
+                className="bg-gradient-primary hover:opacity-80 transition-opacity animate-pulse-glow text-lg px-8 py-4 h-auto"
               >
                 <Brain className="h-5 w-5 mr-2" />
                 Create Quiz
               </Button>
               <div className="flex gap-2">
                 <Input
-                  placeholder="Enter quiz code"
+                  placeholder="Quiz code"
                   value={quizCode}
                   onChange={(e) => setQuizCode(e.target.value.toUpperCase())}
-                  className="bg-secondary/50 border-border uppercase tracking-wider"
+                  className="bg-card/50 border-border uppercase tracking-wider text-center font-mono text-lg"
                   onKeyPress={(e) => e.key === 'Enter' && joinQuiz()}
                   maxLength={6}
                 />
@@ -80,6 +76,7 @@ const Index = () => {
                   variant="outline"
                   size="lg"
                   disabled={!quizCode.trim()}
+                  className="px-6"
                 >
                   Join
                 </Button>
@@ -87,97 +84,44 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Feature Cards */}
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
-            <Card className="p-6 bg-gradient-card border-border/50 hover:border-primary/50 transition-colors group">
+          {/* Simple Feature Cards */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <Card className="p-6 bg-card/30 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all group">
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-lg mb-4 group-hover:bg-primary/20 transition-colors">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-primary/10 rounded-full mb-4 group-hover:scale-110 transition-transform">
                   <Users className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">Test Your Friends</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">Create & Share</h3>
                 <p className="text-muted-foreground text-sm">
-                  Create personalized quizzes and see who really knows you best
+                  Make a quiz, get a code, share with friends
                 </p>
               </div>
             </Card>
 
-            <Card className="p-6 bg-gradient-card border-border/50 hover:border-accent/50 transition-colors group">
+            <Card className="p-6 bg-card/30 backdrop-blur-sm border-border/50 hover:border-accent/50 transition-all group">
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-accent/10 rounded-lg mb-4 group-hover:bg-accent/20 transition-colors">
-                  <Flame className="h-6 w-6 text-accent" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-accent/10 rounded-full mb-4 group-hover:scale-110 transition-transform">
+                  <Trophy className="h-6 w-6 text-accent" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">Epic Roasts</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">Get Scored</h3>
                 <p className="text-muted-foreground text-sm">
-                  Get savage roasts based on scores - from cute to absolutely brutal
+                  See how well they really know you
                 </p>
               </div>
             </Card>
 
-            <Card className="p-6 bg-gradient-card border-border/50 hover:border-quiz-success/50 transition-colors group">
+            <Card className="p-6 bg-card/30 backdrop-blur-sm border-border/50 hover:border-quiz-danger/50 transition-all group">
               <div className="text-center">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-quiz-success/10 rounded-lg mb-4 group-hover:bg-quiz-success/20 transition-colors">
-                  <Trophy className="h-6 w-6 text-quiz-success" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-quiz-danger/10 rounded-full mb-4 group-hover:scale-110 transition-transform">
+                  <Flame className="h-6 w-6 text-quiz-danger" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">Score & Share</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">Get Roasted</h3>
                 <p className="text-muted-foreground text-sm">
-                  Get percentage scores and shareable codes to challenge everyone
+                  Epic roasts based on their score
                 </p>
               </div>
             </Card>
           </div>
-
-          {/* How It Works */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-foreground mb-8">How It Works</h2>
-            <div className="grid md:grid-cols-4 gap-6">
-              {[
-                { step: "1", icon: Brain, title: "Create", desc: "Make questions about yourself" },
-                { step: "2", icon: Code, title: "Share", desc: "Get a unique quiz code" },
-                { step: "3", icon: Users, title: "Challenge", desc: "Friends take your quiz" },
-                { step: "4", icon: Flame, title: "Roast", desc: "Watch them get roasted!" }
-              ].map((item, index) => (
-                <div key={index} className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-primary rounded-full mb-4 animate-float" style={{animationDelay: `${index * 0.5}s`}}>
-                    <item.icon className="h-8 w-8 text-primary-foreground" />
-                  </div>
-                  <h3 className="font-semibold text-foreground mb-2">
-                    Step {item.step}: {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Roast Levels Preview */}
-          <Card className="p-8 bg-gradient-card border-border/50 text-center">
-            <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center justify-center gap-2">
-              <Flame className="h-6 w-6 text-accent" />
-              Roast Intensity Levels
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="p-4 bg-quiz-success/10 rounded-lg border border-quiz-success/20">
-                <div className="text-2xl mb-2">🧠</div>
-                <div className="font-semibold text-quiz-success">90%+ Legendary</div>
-                <div className="text-xs text-muted-foreground">Borderline stalker level</div>
-              </div>
-              <div className="p-4 bg-quiz-warning/10 rounded-lg border border-quiz-warning/20">
-                <div className="text-2xl mb-2">😊</div>
-                <div className="font-semibold text-quiz-warning">70-89% Good Friend</div>
-                <div className="text-xs text-muted-foreground">Pretty decent knowledge</div>
-              </div>
-              <div className="p-4 bg-accent/10 rounded-lg border border-accent/20">
-                <div className="text-2xl mb-2">😬</div>
-                <div className="font-semibold text-accent">40-69% Acquaintance</div>
-                <div className="text-xs text-muted-foreground">Delivery driver level</div>
-              </div>
-              <div className="p-4 bg-quiz-danger/10 rounded-lg border border-quiz-danger/20">
-                <div className="text-2xl mb-2">💀</div>
-                <div className="font-semibold text-quiz-danger">&lt;40% Stranger</div>
-                <div className="text-xs text-muted-foreground">Absolutely brutal roasts</div>
-              </div>
-            </div>
-          </Card>
         </div>
       </div>
     </div>
