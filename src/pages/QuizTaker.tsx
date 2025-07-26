@@ -78,40 +78,135 @@ const QuizTaker = () => {
   };
 
   const getRoastMessage = (percentage: number) => {
-    if (percentage >= 90) return {
-      message: "🔥 DAMN! You actually know them! Are you secretly living in their brain? This is borderline stalker level knowledge! 😂",
-      level: "Legendary",
-      emoji: "🧠"
+    const roastLadder = {
+      0: {
+        level: "Nuclear Roast ☢️",
+        emoji: "☢️",
+        messages: [
+          "You know me like a microwave knows empathy.",
+          "You just failed a personality test about someone you claim to know.",
+          "I've had better connections with public Wi-Fi.",
+          "You're officially less accurate than autocorrect."
+        ]
+      },
+      10: {
+        level: "Tragic Roast 💀",
+        emoji: "💀",
+        messages: [
+          "You're the reason 'bare minimum' has a meaning.",
+          "Did you answer based on a dream you had of me?",
+          "Your guesses were so random I checked if my name was spelled wrong.",
+          "You clicked like you owed me money."
+        ]
+      },
+      20: {
+        level: "Heavy Roast 🔪",
+        emoji: "🔪",
+        messages: [
+          "That wasn't even close. You could've played darts with your eyes closed and hit more truth.",
+          "I've seen fortune cookies that understand me better.",
+          "It's giving: 'I heard your name once at a party.'",
+          "You're not just wrong — you're confidently wrong."
+        ]
+      },
+      30: {
+        level: "Hard Roast 🔥",
+        emoji: "🔥",
+        messages: [
+          "Your answers felt like a social experiment in how NOT to be a friend.",
+          "We must've met in another universe. Because in this one? You don't know me.",
+          "I'd say 'ouch,' but your score already hurts enough.",
+          "You guessed like a YouTube commenter with zero context."
+        ]
+      },
+      40: {
+        level: "Medium Roast ☕",
+        emoji: "☕",
+        messages: [
+          "Almost halfway there. Like most of your life decisions.",
+          "You're either rusty or lying about knowing me.",
+          "Still better than 0%, but not by much.",
+          "Your knowledge of me is like a pop quiz after skipping all the classes."
+        ]
+      },
+      50: {
+        level: "Light Roast 🫖",
+        emoji: "🫖",
+        messages: [
+          "Halfway knowing me is like knowing how to swim — only in the bathtub.",
+          "You know just enough to be dangerous.",
+          "You're that friend who's 'around' but never really... present.",
+          "Better than average. But that's not saying much."
+        ]
+      },
+      60: {
+        level: "Suspicious Roast 🤨",
+        emoji: "🤨",
+        messages: [
+          "Okay… you clearly know some things. But also clearly missed some birthdays.",
+          "Solid effort. You'd survive a trivia night about me, barely.",
+          "Respectable. But not 'best friend' material.",
+          "Like a Netflix algorithm: close but weirdly off."
+        ]
+      },
+      70: {
+        level: "Passive Roast 🙃",
+        emoji: "🙃",
+        messages: [
+          "You're almost there. Just... not emotionally.",
+          "Impressive. For someone who forgot my birthday last year.",
+          "You've earned a bronze medal in friendship. No podium speech.",
+          "You know me well enough to talk trash, but not well enough to back it up."
+        ]
+      },
+      80: {
+        level: "Sharp Roast 🦊",
+        emoji: "🦊",
+        messages: [
+          "Now we're talking. You're dangerously close to being qualified.",
+          "Honestly? I'm impressed. You've been paying attention — mostly.",
+          "You know me better than my therapist.",
+          "If this were a job, you'd get the offer — but no benefits."
+        ]
+      },
+      90: {
+        level: "Elite Roast 💎",
+        emoji: "💎",
+        messages: [
+          "You're either stalking me, or we're mind-linked.",
+          "You're dangerously accurate. Should I be worried?",
+          "Top-tier. You basically hacked my personality.",
+          "At this point, you could blackmail me with this knowledge."
+        ]
+      },
+      100: {
+        level: "God Mode Roast 🧠",
+        emoji: "🧠",
+        messages: [
+          "You ARE me. Are you using my Wi-Fi? My soul?",
+          "That's not friendship — that's telepathy.",
+          "You know me better than I know myself. Please don't use this against me.",
+          "This isn't just a win. It's a psychological takeover."
+        ]
+      }
     };
-    if (percentage >= 80) return {
-      message: "💯 Impressive! You're definitely in their inner circle. Time to update your resume with 'Professional Best Friend' 😎",
-      level: "Bestie Status",
-      emoji: "👑"
-    };
-    if (percentage >= 70) return {
-      message: "✨ Not bad! You know them pretty well. Maybe spend less time on your phone and more time listening? 😉",
-      level: "Good Friend",
-      emoji: "😊"
-    };
-    if (percentage >= 60) return {
-      message: "😬 Yikes... You know them about as well as their delivery driver does. Time for some real conversations!",
-      level: "Acquaintance",
-      emoji: "🤷‍♀️"
-    };
-    if (percentage >= 40) return {
-      message: "💀 OUCH! Did you two just meet yesterday? This is embarrassing. Group chat is gonna have a field day! 😂",
-      level: "Stranger Danger",
-      emoji: "👻"
-    };
-    if (percentage >= 20) return {
-      message: "🔥 SAVAGE ROAST INCOMING: You know NOTHING! Jon Snow has more knowledge than you about this person! 😭",
-      level: "Complete Stranger",
-      emoji: "🤡"
-    };
+
+    // Find the appropriate roast tier
+    let tier = 0;
+    for (const threshold of [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0]) {
+      if (percentage >= threshold) {
+        tier = threshold;
+        break;
+      }
+    }
+
+    const roastData = roastLadder[tier];
+    const randomMessage = roastData.messages[Math.floor(Math.random() * roastData.messages.length)];
+
     return {
-      message: "💀💀💀 ABSOLUTE DESTRUCTION: Are you sure you didn't accidentally take the wrong quiz? This is painful to watch! 😂💀",
-      level: "WHO ARE YOU?",
-      emoji: "💀"
+      message: randomMessage,
+      level: roastData.level,
+      emoji: roastData.emoji
     };
   };
 
