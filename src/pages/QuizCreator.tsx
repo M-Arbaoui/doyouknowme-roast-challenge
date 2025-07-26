@@ -86,41 +86,47 @@ const QuizCreator = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background p-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float opacity-40"></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float opacity-30" style={{animationDelay: '2s'}}></div>
+      </div>
+      
+      <div className="relative max-w-4xl mx-auto p-6">
+        <div className="text-center mb-12 animate-slide-up">
+          <h1 className="text-5xl md:text-6xl font-black bg-gradient-primary bg-clip-text text-transparent mb-4">
             Create Your Quiz
           </h1>
-          <p className="text-muted-foreground">
-            Test how well your friends really know you!
+          <p className="text-xl text-muted-foreground font-medium">
+            Test how well your friends really know you! 🧠
           </p>
         </div>
 
         <div className="space-y-6">
           {/* Quiz Info */}
-          <Card className="p-6 bg-gradient-card border-border/50">
+          <Card className="p-8 bg-white/5 backdrop-blur-md border-white/10 shadow-2xl animate-slide-up"  style={{animationDelay: '0.1s'}}>
             <div className="space-y-4">
               <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
-                  Quiz Title
+                <label className="text-sm font-semibold text-foreground mb-3 block">
+                  Quiz Title ✨
                 </label>
                 <Input
                   placeholder="How Well Do You Know Me?"
                   value={quizTitle}
                   onChange={(e) => setQuizTitle(e.target.value)}
-                  className="bg-secondary/50 border-border"
+                  className="bg-white/10 backdrop-blur-sm border-white/20 focus:border-primary/50 transition-all duration-300 h-12 text-lg"
                 />
               </div>
               <div>
-                <label className="text-sm font-medium text-foreground mb-2 block">
-                  Your Name
+                <label className="text-sm font-semibold text-foreground mb-3 block">
+                  Your Name 👤
                 </label>
                 <Input
                   placeholder="Enter your name"
                   value={creatorName}
                   onChange={(e) => setCreatorName(e.target.value)}
-                  className="bg-secondary/50 border-border"
+                  className="bg-white/10 backdrop-blur-sm border-white/20 focus:border-primary/50 transition-all duration-300 h-12 text-lg"
                 />
               </div>
             </div>

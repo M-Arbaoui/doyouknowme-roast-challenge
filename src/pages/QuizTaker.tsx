@@ -169,30 +169,39 @@ const QuizTaker = () => {
     const roast = getRoastMessage(score);
     
     return (
-      <div className="min-h-screen bg-background p-4">
-        <div className="max-w-2xl mx-auto">
-          <Card className="p-8 bg-gradient-card border-border/50 text-center animate-slide-up">
-            <div className="mb-6">
-              <div className="text-6xl mb-4 animate-float">{roast.emoji}</div>
-              <h1 className="text-4xl font-bold mb-2">
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  {score}%
-                </span>
-              </h1>
-              <div className="flex items-center justify-center gap-2 mb-4">
-                <Trophy className="h-5 w-5 text-quiz-warning" />
-                <span className="text-lg font-semibold text-quiz-warning">
+      <div className="min-h-screen bg-background p-4 relative overflow-hidden">
+        {/* Celebratory background effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-2xl animate-float"></div>
+          <div className="absolute top-3/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-quiz-success/10 rounded-full blur-3xl animate-pulse"></div>
+        </div>
+        
+        <div className="relative max-w-2xl mx-auto">
+          <Card className="p-8 bg-white/5 backdrop-blur-md border-white/10 text-center animate-bounce-in shadow-2xl">
+            <div className="mb-8">
+              <div className="text-8xl mb-6 animate-bounce-in" style={{animationDelay: '0.3s'}}>{roast.emoji}</div>
+              <div className="relative">
+                <h1 className="text-6xl md:text-7xl font-black mb-4 animate-glow-pulse">
+                  <span className="bg-gradient-primary bg-clip-text text-transparent">
+                    {score}%
+                  </span>
+                </h1>
+              </div>
+              <div className="flex items-center justify-center gap-3 mb-6 animate-slide-up" style={{animationDelay: '0.5s'}}>
+                <Trophy className="h-6 w-6 text-quiz-warning animate-float" />
+                <span className="text-2xl font-black text-quiz-warning">
                   {roast.level}
                 </span>
               </div>
             </div>
 
-            <div className="bg-secondary/50 rounded-lg p-6 mb-6">
-              <div className="flex items-center gap-3 mb-3">
-                <Flame className="h-5 w-5 text-accent" />
-                <span className="font-semibold text-foreground">Roast Level: {roast.level}</span>
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-white/10 animate-slide-up" style={{animationDelay: '0.7s'}}>
+              <div className="flex items-center gap-3 mb-4">
+                <Flame className="h-6 w-6 text-accent animate-pulse" />
+                <span className="font-bold text-xl text-foreground">Roast Level: {roast.level}</span>
               </div>
-              <p className="text-foreground leading-relaxed">
+              <p className="text-foreground leading-relaxed text-lg font-medium">
                 {roast.message}
               </p>
             </div>
