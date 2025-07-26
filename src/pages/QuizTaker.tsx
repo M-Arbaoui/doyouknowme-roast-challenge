@@ -292,8 +292,9 @@ const QuizTaker = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="text-sm text-muted-foreground">
-                You got {selectedAnswers.filter((answer, index) => answer === quiz.questions[index].correctAnswer).length} out of {quiz.questions.length} questions right
+              <div className="text-sm text-muted-foreground space-y-1">
+                <div>You got {selectedAnswers.filter((answer, index) => answer === quiz.questions[index].correctAnswer).length} out of {quiz.questions.length} questions right</div>
+                <div>You made {quiz.questions.length - selectedAnswers.filter((answer, index) => answer === quiz.questions[index].correctAnswer).length} mistakes</div>
               </div>
               
               <div className="flex gap-4">
