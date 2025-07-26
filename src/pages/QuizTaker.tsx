@@ -283,19 +283,9 @@ const QuizTaker = () => {
                   </span>
                 </h1>
               </div>
-              <div className="flex items-center justify-center gap-3 mb-6 animate-slide-up" style={{animationDelay: '0.5s'}}>
-                <Trophy className="h-6 w-6 text-quiz-warning animate-float" />
-                <span className="text-2xl font-black text-quiz-warning">
-                  {roast.level}
-                </span>
-              </div>
             </div>
 
             <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-white/10 animate-slide-up" style={{animationDelay: '0.7s'}}>
-              <div className="flex items-center gap-3 mb-4">
-                <Flame className="h-6 w-6 text-accent animate-pulse" />
-                <span className="font-bold text-xl text-foreground">Roast Level: {roast.level}</span>
-              </div>
               <p className="text-foreground leading-relaxed text-lg font-medium">
                 {roast.message}
               </p>
