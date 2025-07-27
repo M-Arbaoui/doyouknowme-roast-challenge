@@ -54,12 +54,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				quiz: {
-					electric: 'hsl(var(--quiz-electric))',
-					pink: 'hsl(var(--quiz-pink))',
-					cyan: 'hsl(var(--quiz-cyan))',
-					lime: 'hsl(var(--quiz-lime))',
-					orange: 'hsl(var(--quiz-orange))',
-					purple: 'hsl(var(--quiz-purple))'
+					ice: 'hsl(var(--quiz-ice))',
+					ocean: 'hsl(var(--quiz-ocean))',
+					mint: 'hsl(var(--quiz-mint))',
+					coral: 'hsl(var(--quiz-coral))',
+					lavender: 'hsl(var(--quiz-lavender))',
+					sage: 'hsl(var(--quiz-sage))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -137,18 +137,17 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-electric': 'var(--gradient-electric)',
-				'gradient-cyber': 'var(--gradient-cyber)',
-				'gradient-sunset': 'var(--gradient-sunset)',
-				'gradient-lime': 'var(--gradient-lime)',
-				'gradient-neon': 'var(--gradient-neon)',
-				'gradient-glass': 'linear-gradient(135deg, var(--glass-bg), transparent)'
+				'gradient-ocean': 'var(--gradient-ocean)',
+				'gradient-mint': 'var(--gradient-mint)',
+				'gradient-coral': 'var(--gradient-coral)',
+				'gradient-sky': 'var(--gradient-sky)',
+				'gradient-glass': 'var(--gradient-glass)'
 			},
 			boxShadow: {
-				'electric': 'var(--shadow-electric)',
-				'pink': 'var(--shadow-pink)',
-				'cyan': 'var(--shadow-cyan)',
-				'mega': 'var(--shadow-mega)'
+				'soft': 'var(--shadow-soft)',
+				'medium': 'var(--shadow-medium)',
+				'large': 'var(--shadow-large)',
+				'glow': 'var(--shadow-glow)'
 			},
 			backdropBlur: {
 				'glass': 'var(--glass-backdrop)'

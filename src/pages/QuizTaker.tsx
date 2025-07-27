@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
-import { ChevronRight, Trophy, Skull } from "lucide-react";
+import { ChevronRight, Trophy, Flame } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface Question {
@@ -40,8 +40,8 @@ const QuizTaker = () => {
         setQuiz(JSON.parse(quizData));
       } else {
         toast({
-          title: "TARGET NOT FOUND",
-          description: "This launch code is invalid or has been terminated.",
+          title: "Quiz Not Found",
+          description: "This quiz code doesn't exist or has expired.",
           variant: "destructive",
         });
         navigate('/');
@@ -78,129 +78,129 @@ const QuizTaker = () => {
   };
 
   const getRoastMessage = (percentage: number) => {
-    const roastProtocol = {
+    const roastLadder = {
       0: {
-        level: "CRITICAL SYSTEM FAILURE ☢️",
+        level: "Nuclear Roast ☢️",
         emoji: "☢️",
         messages: [
-          "You know me like a firewall knows empathy.",
-          "FATAL ERROR: Personality recognition software not found.",
-          "Connection to reality: TERMINATED.",
-          "Your accuracy level: CATASTROPHICALLY LOW."
+          "You know me like a microwave knows empathy.",
+          "You just failed a personality test about someone you claim to know.",
+          "I've had better connections with public Wi-Fi.",
+          "You're officially less accurate than autocorrect."
         ]
       },
       10: {
-        level: "NUCLEAR MELTDOWN 💀",
+        level: "Tragic Roast 💀",
         emoji: "💀",
         messages: [
-          "Achievement unlocked: Maximum Incompetence.",
-          "Did you answer while experiencing system lag?",
-          "Your responses were so random I checked for malware.",
-          "You operated like ransomware - destructive and pointless."
+          "You're the reason 'bare minimum' has a meaning.",
+          "Did you answer based on a dream you had of me?",
+          "Your guesses were so random I checked if my name was spelled wrong.",
+          "You clicked like you owed me money."
         ]
       },
       20: {
-        level: "SYSTEM COMPROMISED 🔪",
+        level: "Heavy Roast 🔪",
         emoji: "🔪",
         messages: [
-          "That wasn't even close. You played with negative processing power.",
-          "I've seen chatbots with better pattern recognition.",
-          "Status: TOTALLY PWNED.",
-          "You're not just wrong — you're maliciously wrong."
+          "That wasn't even close. You could've played darts with your eyes closed and hit more truth.",
+          "I've seen fortune cookies that understand me better.",
+          "It's giving: 'I heard your name once at a party.'",
+          "You're not just wrong — you're confidently wrong."
         ]
       },
       30: {
-        level: "SECURITY BREACH 🔥",
+        level: "Hard Roast 🔥",
         emoji: "🔥",
         messages: [
-          "Your responses felt like a DDoS attack on friendship.",
-          "We must exist in parallel universes with zero data sync.",
-          "ERROR 404: Friendship protocols not found.",
-          "You guessed like spam comments on a deleted post."
+          "Your answers felt like a social experiment in how NOT to be a friend.",
+          "We must've met in another universe. Because in this one? You don't know me.",
+          "I'd say 'ouch,' but your score already hurts enough.",
+          "You guessed like a YouTube commenter with zero context."
         ]
       },
       40: {
-        level: "LOW BANDWIDTH ☕",
+        level: "Medium Roast ☕",
         emoji: "☕",
         messages: [
-          "Almost half-functional. Like most of your life choices.",
-          "Your friendship.exe needs a serious update.",
-          "Still better than 0%, but running on dial-up speed.",
-          "Your knowledge operates like software from 1995."
+          "Almost halfway there. Like most of your life decisions.",
+          "You're either rusty or lying about knowing me.",
+          "Still better than 0%, but not by much.",
+          "Your knowledge of me is like a pop quiz after skipping all the classes."
         ]
       },
       50: {
-        level: "BASIC CONNECTIVITY 🫖",
+        level: "Light Roast 🫖",
         emoji: "🫖",
         messages: [
-          "50% knowing me is like having half a password — useless.",
-          "You're running on minimal system requirements.",
-          "You're that friend who's 'online' but always away.",
-          "Performance: ADEQUATE. Barely."
+          "Halfway knowing me is like knowing how to swim — only in the bathtub.",
+          "You know just enough to be dangerous.",
+          "You're that friend who's 'around' but never really... present.",
+          "Better than average. But that's not saying much."
         ]
       },
       60: {
-        level: "SUSPICIOUS ACTIVITY 🤨",
+        level: "Suspicious Roast 🤨",
         emoji: "🤨",
         messages: [
-          "Decent processing power detected. Still room for optimization.",
-          "Solid performance. Your friendship OS is mostly stable.",
-          "Acceptable results. Premium version might help.",
-          "Like a Netflix algorithm: functional but occasionally weird."
+          "Okay… you clearly know some things. But also clearly missed some birthdays.",
+          "Solid effort. You'd survive a trivia night about me, barely.",
+          "Respectable. But not 'best friend' material.",
+          "Like a Netflix algorithm: close but weirdly off."
         ]
       },
       70: {
-        level: "ENHANCED MODE 🙃",
+        level: "Passive Roast 🙃",
         emoji: "🙃",
         messages: [
-          "High performance detected. Need better emotional drivers.",
-          "Impressive. For someone running legacy friendship software.",
-          "Bronze tier unlocked. No admin privileges yet.",
-          "You've earned standard user access. No root permissions."
+          "You're almost there. Just... not emotionally.",
+          "Impressive. For someone who forgot my birthday last year.",
+          "You've earned a bronze medal in friendship. No podium speech.",
+          "You know me well enough to talk trash, but not well enough to back it up."
         ]
       },
       80: {
-        level: "ADVANCED PROTOCOL 🦊",
+        level: "Sharp Roast 🦊",
         emoji: "🦊",
         messages: [
-          "Premium tier activated. You're running quality software.",
-          "Impressive metrics. You've been monitoring my data streams.",
-          "Your pattern recognition rivals professional surveillance.",
-          "If this were employment, you'd get the position — standard benefits."
+          "Now we're talking. You're dangerously close to being qualified.",
+          "Honestly? I'm impressed. You've been paying attention — mostly.",
+          "You know me better than my therapist.",
+          "If this were a job, you'd get the offer — but no benefits."
         ]
       },
       90: {
-        level: "ELITE ACCESS 💎",
+        level: "Elite Roast 💎",
         emoji: "💎",
         messages: [
-          "You're either running advanced AI, or we're quantum entangled.",
-          "Dangerously accurate. Should I check for keyloggers?",
-          "Top-tier performance. You've basically hacked my personality matrix.",
-          "This level of data access should require security clearance."
+          "You're either stalking me, or we're mind-linked.",
+          "You're dangerously accurate. Should I be worried?",
+          "Top-tier. You basically hacked my personality.",
+          "At this point, you could blackmail me with this knowledge."
         ]
       },
       100: {
-        level: "ADMIN PRIVILEGES 🧠",
+        level: "God Mode Roast 🧠",
         emoji: "🧠",
         messages: [
-          "You ARE my operating system. Are you accessing my core files?",
-          "That's not friendship — that's total system integration.",
-          "You know me better than my own debugging protocols.",
-          "This isn't just victory. It's complete system takeover."
+          "You ARE me. Are you using my Wi-Fi? My soul?",
+          "That's not friendship — that's telepathy.",
+          "You know me better than I know myself. Please don't use this against me.",
+          "This isn't just a win. It's a psychological takeover."
         ]
       }
     };
 
-    // Find appropriate threat level
-    let level = 0;
+    // Find the appropriate roast tier
+    let tier = 0;
     for (const threshold of [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0]) {
       if (percentage >= threshold) {
-        level = threshold;
+        tier = threshold;
         break;
       }
     }
 
-    const roastData = roastProtocol[level];
+    const roastData = roastLadder[tier];
     const randomMessage = roastData.messages[Math.floor(Math.random() * roastData.messages.length)];
 
     return {
@@ -214,8 +214,8 @@ const QuizTaker = () => {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin w-12 h-12 border-4 border-quiz-electric border-t-transparent rounded-full mx-auto mb-4 shadow-electric"></div>
-          <p className="text-muted-foreground font-mono">LOADING TARGET DATA...</p>
+          <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
+          <p className="text-muted-foreground">Loading quiz...</p>
         </div>
       </div>
     );
@@ -223,41 +223,35 @@ const QuizTaker = () => {
 
   if (!gameStarted) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4 relative overflow-hidden">
-        {/* Cyberpunk background */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-electric rounded-full blur-3xl opacity-20 animate-float"></div>
-          <div className="absolute top-3/4 right-1/4 w-48 h-48 bg-gradient-cyber rounded-full blur-3xl opacity-15 animate-float" style={{animationDelay: '1s'}}></div>
-        </div>
-
-        <Card className="relative w-full max-w-md p-10 bg-gradient-glass backdrop-blur-glass border border-white/20 text-center shadow-electric">
-          <div className="mb-8">
-            <h1 className="text-4xl font-black bg-gradient-electric bg-clip-text text-transparent mb-3 tracking-wider">
+      <div className="min-h-screen bg-background flex items-center justify-center p-4">
+        <Card className="w-full max-w-md p-8 bg-gradient-card border-border/50 text-center">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-2">
               {quiz.title}
             </h1>
-            <p className="text-muted-foreground mb-2">
-              Deployed by <span className="text-foreground font-bold">{quiz.creator}</span>
+            <p className="text-muted-foreground">
+              Created by <span className="text-foreground font-semibold">{quiz.creator}</span>
             </p>
-            <p className="text-sm text-muted-foreground font-mono">
-              {quiz.questions.length} ATTACK VECTORS • PREPARE FOR OBLITERATION ⚡
+            <p className="text-sm text-muted-foreground mt-2">
+              {quiz.questions.length} questions • Get ready to be roasted! 🔥
             </p>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             <Input
-              placeholder="ENTER AGENT DESIGNATION"
+              placeholder="Enter your name"
               value={playerName}
               onChange={(e) => setPlayerName(e.target.value)}
-              className="bg-gradient-glass border-quiz-electric/50 text-center font-mono h-14 text-lg"
+              className="bg-secondary/50 border-border text-center"
               onKeyPress={(e) => e.key === 'Enter' && startQuiz()}
             />
             <Button
               onClick={startQuiz}
               disabled={!playerName.trim()}
-              className="w-full bg-gradient-electric hover:opacity-80 transition-opacity animate-pulse-glow h-14 font-black tracking-wider shadow-electric"
+              className="w-full bg-gradient-primary hover:opacity-80 transition-opacity animate-pulse-glow"
             >
-              INITIATE ASSESSMENT
-              <ChevronRight className="h-5 w-5 ml-2" />
+              Start the Challenge
+              <ChevronRight className="h-4 w-4 ml-2" />
             </Button>
           </div>
         </Card>
@@ -271,48 +265,45 @@ const QuizTaker = () => {
     
     return (
       <div className="min-h-screen bg-background p-4 relative overflow-hidden">
-        {/* Results background effects */}
+        {/* Celebratory background effects */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-electric rounded-full blur-3xl opacity-30 animate-float"></div>
-          <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-gradient-cyber rounded-full blur-3xl opacity-25 animate-float" style={{animationDelay: '1s'}}></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-gradient-sunset rounded-full blur-3xl opacity-35 animate-pulse"></div>
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-2xl animate-float"></div>
+          <div className="absolute top-3/4 right-1/4 w-48 h-48 bg-accent/20 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-quiz-success/10 rounded-full blur-3xl animate-pulse"></div>
         </div>
         
-        <div className="relative max-w-3xl mx-auto">
-          <Card className="p-12 bg-gradient-glass backdrop-blur-glass border border-white/20 text-center animate-bounce-in shadow-mega">
-            <div className="mb-12">
-              <div className="text-9xl mb-8 animate-bounce-in" style={{animationDelay: '0.3s'}}>{roast.emoji}</div>
+        <div className="relative max-w-2xl mx-auto">
+          <Card className="p-8 bg-white/5 backdrop-blur-md border-white/10 text-center animate-bounce-in shadow-2xl">
+            <div className="mb-8">
+              <div className="text-8xl mb-6 animate-bounce-in" style={{animationDelay: '0.3s'}}>{roast.emoji}</div>
               <div className="relative">
-                <h1 className="text-7xl md:text-8xl font-black mb-6 animate-glow-pulse">
-                  <span className="bg-gradient-electric bg-clip-text text-transparent">
+                <h1 className="text-6xl md:text-7xl font-black mb-4 animate-glow-pulse">
+                  <span className="bg-gradient-primary bg-clip-text text-transparent">
                     {score}%
                   </span>
                 </h1>
-                <div className="text-lg font-black text-quiz-electric mb-4 tracking-wider animate-pulse">
-                  {roast.level}
-                </div>
               </div>
             </div>
 
-            <div className="bg-gradient-glass backdrop-blur-sm rounded-2xl p-10 mb-10 border border-white/10 animate-slide-up" style={{animationDelay: '0.7s'}}>
-              <p className="text-foreground leading-relaxed text-xl font-medium">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-white/10 animate-slide-up" style={{animationDelay: '0.7s'}}>
+              <p className="text-foreground leading-relaxed text-lg font-medium">
                 {roast.message}
               </p>
             </div>
 
-            <div className="space-y-6">
-              <div className="text-sm text-muted-foreground space-y-2 font-mono">
-                <div>SUCCESSFUL OPERATIONS: {selectedAnswers.filter((answer, index) => answer === quiz.questions[index].correctAnswer).length} / {quiz.questions.length}</div>
-                <div>FAILED ATTEMPTS: {quiz.questions.length - selectedAnswers.filter((answer, index) => answer === quiz.questions[index].correctAnswer).length}</div>
+            <div className="space-y-4">
+              <div className="text-sm text-muted-foreground space-y-1">
+                <div>You got {selectedAnswers.filter((answer, index) => answer === quiz.questions[index].correctAnswer).length} out of {quiz.questions.length} questions right</div>
+                <div>You made {quiz.questions.length - selectedAnswers.filter((answer, index) => answer === quiz.questions[index].correctAnswer).length} mistakes</div>
               </div>
               
-              <div className="flex gap-6">
+              <div className="flex gap-4">
                 <Button
                   onClick={() => navigate('/')}
                   variant="outline"
-                  className="flex-1 h-14 font-black tracking-wider bg-gradient-glass border-white/20 hover:border-quiz-cyan hover:bg-quiz-cyan/10"
+                  className="flex-1"
                 >
-                  CREATE YOUR WEAPON
+                  Create Your Own
                 </Button>
                 <Button
                   onClick={() => {
@@ -322,9 +313,9 @@ const QuizTaker = () => {
                     setShowResults(false);
                     setPlayerName("");
                   }}
-                  className="flex-1 bg-gradient-electric hover:opacity-80 h-14 font-black tracking-wider shadow-electric"
+                  className="flex-1 bg-gradient-primary hover:opacity-80"
                 >
-                  RETRY MISSION
+                  Try Again
                 </Button>
               </div>
             </div>
@@ -338,51 +329,38 @@ const QuizTaker = () => {
   const progress = ((currentQuestion + 1) / quiz.questions.length) * 100;
 
   return (
-    <div className="min-h-screen bg-background p-4 relative overflow-hidden">
-      {/* Active assessment background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-electric rounded-full blur-3xl opacity-15 animate-float"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 bg-gradient-cyber rounded-full blur-2xl opacity-10 animate-float" style={{animationDelay: '2s'}}></div>
-      </div>
-
-      <div className="relative max-w-3xl mx-auto">
-        <div className="mb-8">
-          <div className="flex justify-between items-center mb-6">
-            <span className="text-sm text-muted-foreground font-mono tracking-wider">
-              VECTOR {currentQuestion + 1} OF {quiz.questions.length}
+    <div className="min-h-screen bg-background p-4">
+      <div className="max-w-2xl mx-auto">
+        <div className="mb-6">
+          <div className="flex justify-between items-center mb-4">
+            <span className="text-sm text-muted-foreground">
+              Question {currentQuestion + 1} of {quiz.questions.length}
             </span>
-            <span className="text-sm font-bold text-foreground font-mono tracking-wider">
-              AGENT: {playerName}
+            <span className="text-sm font-semibold text-foreground">
+              {playerName}
             </span>
           </div>
-          <Progress 
-            value={progress} 
-            className="h-3 bg-secondary/50" 
-          />
-          <div className="flex justify-between mt-2 text-xs text-muted-foreground font-mono">
-            <span>{Math.round(progress)}% COMPLETE</span>
-            <span>THREAT LEVEL: {currentQuestion < quiz.questions.length / 2 ? 'MODERATE' : 'CRITICAL'}</span>
-          </div>
+          <Progress value={progress} className="h-2 bg-secondary/50" />
         </div>
 
-        <Card className="p-10 bg-gradient-glass backdrop-blur-glass border border-white/20 animate-slide-up shadow-electric">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10 text-center leading-relaxed">
+        <Card className="p-8 bg-gradient-card border-border/50 animate-slide-up">
+          <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
             {currentQ.question}
           </h2>
 
-          <div className="grid grid-cols-1 gap-4 mb-10">
+          <div className="grid grid-cols-1 gap-4 mb-8">
             {currentQ.options.map((option, index) => (
               <Button
                 key={index}
                 onClick={() => selectAnswer(index)}
                 variant={selectedAnswers[currentQuestion] === index ? "default" : "outline"}
-                className={`p-6 h-auto text-left justify-start transition-all hover:scale-[1.02] font-medium text-lg ${
+                className={`p-4 h-auto text-left justify-start transition-all hover:scale-[1.02] ${
                   selectedAnswers[currentQuestion] === index
-                    ? 'bg-gradient-electric text-primary-foreground shadow-electric border-quiz-electric'
-                    : 'hover:border-quiz-electric/50 hover:text-quiz-electric bg-gradient-glass border-white/20'
+                    ? 'bg-gradient-primary text-primary-foreground shadow-lg border-primary'
+                    : 'hover:border-primary/50 hover:text-primary'
                 }`}
               >
-                <span className="w-8 h-8 rounded-full border-2 border-current flex items-center justify-center mr-4 text-sm font-black">
+                <span className="w-6 h-6 rounded-full border-2 border-current flex items-center justify-center mr-3 text-xs font-bold">
                   {String.fromCharCode(65 + index)}
                 </span>
                 {option}
@@ -393,17 +371,17 @@ const QuizTaker = () => {
           <Button
             onClick={nextQuestion}
             disabled={selectedAnswers[currentQuestion] === undefined}
-            className="w-full bg-gradient-electric hover:opacity-80 transition-opacity h-16 font-black text-xl tracking-wider shadow-electric"
+            className="w-full bg-gradient-primary hover:opacity-80 transition-opacity"
           >
             {currentQuestion < quiz.questions.length - 1 ? (
               <>
-                DEPLOY NEXT VECTOR
-                <ChevronRight className="h-6 w-6 ml-3" />
+                Next Question
+                <ChevronRight className="h-4 w-4 ml-2" />
               </>
             ) : (
               <>
-                EXECUTE ASSESSMENT
-                <Skull className="h-6 w-6 ml-3" />
+                See Results
+                <Trophy className="h-4 w-4 ml-2" />
               </>
             )}
           </Button>
