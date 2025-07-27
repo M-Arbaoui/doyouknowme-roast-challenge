@@ -54,10 +54,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				quiz: {
-					success: 'hsl(var(--quiz-success))',
-					warning: 'hsl(var(--quiz-warning))',
-					danger: 'hsl(var(--quiz-danger))',
-					glow: 'hsl(var(--quiz-glow))'
+					ice: 'hsl(var(--quiz-ice))',
+					ocean: 'hsl(var(--quiz-ocean))',
+					mint: 'hsl(var(--quiz-mint))',
+					coral: 'hsl(var(--quiz-coral))',
+					lavender: 'hsl(var(--quiz-lavender))',
+					sage: 'hsl(var(--quiz-sage))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -135,9 +137,20 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-glow': 'var(--gradient-glow)',
-				'gradient-card': 'var(--gradient-card)'
+				'gradient-ocean': 'var(--gradient-ocean)',
+				'gradient-mint': 'var(--gradient-mint)',
+				'gradient-coral': 'var(--gradient-coral)',
+				'gradient-sky': 'var(--gradient-sky)',
+				'gradient-glass': 'var(--gradient-glass)'
+			},
+			boxShadow: {
+				'soft': 'var(--shadow-soft)',
+				'medium': 'var(--shadow-medium)',
+				'large': 'var(--shadow-large)',
+				'glow': 'var(--shadow-glow)'
+			},
+			backdropBlur: {
+				'glass': 'var(--glass-backdrop)'
 			}
 		}
 	},
